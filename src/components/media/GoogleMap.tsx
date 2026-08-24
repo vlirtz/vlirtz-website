@@ -1,4 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { site } from "@/lib/site";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { Button } from "@/components/ui/Button";
 
 /**
  * Builds the public Google Maps search URL for the office street address.
@@ -19,9 +24,37 @@ export function getMapsEmbedUrl(): string {
 }
 
 /**
- * Embedded Google Map for the VLIRTZ office, with an open-in-Maps control.
+ * Embedded Google Map for the VLIRTZ office. The iframe (and the cookies it
+ * sets) only loads once the visitor accepts optional cookies site-wide, or
+ * explicitly loads the map for this one visit.
  */
 export function GoogleMap() {
+  const { consent, hydrated } = useCookieConsent();
+  const [loadedOnce, setLoadedOnce] = useState(false);
+
+  if (!hydrated) {
+    return <div className="h-[28rem] w-full rounded-3xl bg-fog" />;
+  }
+
+  const canEmbed = consent === "accepted" || loadedOnce;
+
+  if (!canEmbed) {
+    return (
+      <div className="flex h-[28rem] flex-col items-center justify-center gap-4 rounded-3xl border border-line bg-fog p-10 text-center">
+        <p className="max-w-sm text-sm leading-6 text-muted">
+          Loading the map sets cookies from Google. Load it below for this
+          visit, or open the location directly in Google Maps.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button onClick={() => setLoadedOnce(true)}>Load map</Button>
+          <Button href={getMapsSearchUrl()} variant="secondary" target="_blank" rel="noopener noreferrer">
+            Open in Google Maps
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative overflow-hidden rounded-3xl ring-1 ring-line">
       <iframe

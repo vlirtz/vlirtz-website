@@ -1,12 +1,17 @@
+"use client";
+
 import Script from "next/script";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 /**
- * Loads Google Analytics only when NEXT_PUBLIC_GA_MEASUREMENT_ID is set.
+ * Loads Google Analytics only when NEXT_PUBLIC_GA_MEASUREMENT_ID is set
+ * and the visitor has accepted optional cookies.
  */
 export function GoogleAnalytics() {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const { consent, hydrated } = useCookieConsent();
 
-  if (!measurementId) {
+  if (!measurementId || !hydrated || consent !== "accepted") {
     return null;
   }
 

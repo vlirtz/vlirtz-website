@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type ButtonProps = {
   href?: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "outline";
   type?: "button" | "submit";
   className?: string;
   disabled?: boolean;
@@ -19,6 +19,8 @@ const variants = {
   secondary:
     "bg-white text-navy border-line hover:border-indigo hover:text-indigo",
   ghost: "bg-transparent text-navy border-transparent hover:text-indigo",
+  outline:
+    "bg-transparent text-white border-white/70 hover:bg-white/10 hover:border-white",
 };
 
 /**

@@ -2,7 +2,6 @@ import { AboutPreview } from "@/components/home/AboutPreview";
 import { ContactSection } from "@/components/home/ContactSection";
 import { Hero } from "@/components/home/Hero";
 import { Projects } from "@/components/home/Projects";
-import { ServiceCards } from "@/components/home/ServiceCards";
 import { ServiceDetails } from "@/components/home/ServiceDetails";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata, getLocalBusinessJsonLd } from "@/lib/seo";
@@ -29,7 +28,6 @@ export default function HomePage() {
     <>
       <JsonLd data={getLocalBusinessJsonLd()} />
       <Hero />
-      <ServiceCards />
       <AboutPreview />
       <ServiceDetails />
       <Projects />

@@ -107,7 +107,11 @@ export const locations: Location[] = [
           "None to worry about. Zurich and Stockholm share the same time zone, so working hours line up fully.",
       },
     ],
-    relatedPostSlugs: ["ai-consulting-zurich-swiss-companies"],
+    relatedPostSlugs: [
+      "ai-consulting-zurich-swiss-companies",
+      "ai-lead-generation-zurich",
+      "ai-agency-zurich-vs-amsterdam",
+    ],
   },
   {
     slug: "amsterdam",
@@ -147,7 +151,11 @@ export const locations: Location[] = [
           "We keep customer data in the EU by default and document processors and legal basis before any project starts.",
       },
     ],
-    relatedPostSlugs: ["ai-software-agency-amsterdam-copenhagen"],
+    relatedPostSlugs: [
+      "ai-software-agency-amsterdam-copenhagen",
+      "ai-lead-generation-amsterdam",
+      "ai-agency-zurich-vs-amsterdam",
+    ],
   },
   {
     slug: "copenhagen",

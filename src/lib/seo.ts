@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { FaqItem } from "./faq";
 import type { Location } from "./locations";
 import { formatAddressLine, site } from "./site";
 
@@ -156,6 +157,24 @@ export function getLocationFaqJsonLd(location: Location) {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: location.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * FAQPage JSON-LD for any generic list of Q&A items, e.g. the homepage FAQ.
+ */
+export function getFaqJsonLd(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

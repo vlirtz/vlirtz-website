@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CookieConsentBanner } from "@/components/consent/CookieConsentBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { RevealRoot } from "@/components/motion/RevealRoot";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <GoogleAnalytics />
         <JsonLd data={getWebsiteJsonLd()} />
         <RevealRoot />
+        <ScrollProgressBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

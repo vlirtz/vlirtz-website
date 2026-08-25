@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CookieConsentBanner } from "@/components/consent/CookieConsentBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { RevealRoot } from "@/components/motion/RevealRoot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppWidget />
         <CookieConsentBanner />
       </body>
     </html>

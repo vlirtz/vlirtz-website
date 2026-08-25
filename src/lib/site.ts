@@ -12,6 +12,8 @@ export const site = {
   email: "info@vlirtz.com",
   phone: "+46 76 451 40 94",
   phoneHref: "tel:+46764514094",
+  whatsapp: "+46 76 451 40 94",
+  whatsappHref: "https://wa.me/46764514094",
   hours: "09:00-17:00 CET",
   founded: "2025",
   description:

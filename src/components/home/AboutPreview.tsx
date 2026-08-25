@@ -37,8 +37,8 @@ export function AboutPreview() {
             className="h-full w-full rounded-3xl object-cover"
           />
           <Image
-            src="/images/ad-1.jpg"
-            alt="VLIRTZ street advertisement about reasoning and acting on multi-step tasks"
+            src="/images/vercel-desk.jpg"
+            alt="Developer desk with a Develop, Preview, Ship mug and code on screen"
             width={500}
             height={620}
             className="h-full w-full rounded-3xl object-cover"

@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const projects = [
   {
-    src: "/images/hero-times-square.jpg",
+    src: "/images/hero-times-square-crop.jpg",
     title: "Campaign work",
     text: "Brand and campaign assets for AI agent development, consulting and lead generation.",
   },
@@ -14,14 +14,14 @@ const projects = [
     text: "Street and digital creative around reasoning and acting on multi-step tasks.",
   },
   {
-    src: "/images/ad-2.jpg",
-    title: "Ready for AI agents",
-    text: "Positioning work that asks a simple question: is the business ready for agents?",
+    src: "/images/ad-3.jpg",
+    title: "A free first conversation",
+    text: "Creative pointing toward a free AI strategy call, the same low-friction first step we offer today.",
   },
   {
     src: "/images/reach-map.jpg",
-    title: "Europe and Middle East reach",
-    text: "Delivery aimed at clients across both regions, the same map from the original site.",
+    title: "Stockholm, and clients across Europe and the Gulf",
+    text: "Headquartered in Stockholm, working with companies in Zurich, Amsterdam, Copenhagen, Dubai, and beyond.",
   },
 ];
 

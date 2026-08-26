@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
+/** Fully static output; safe and cheap to pre-render once at build time. */
+export const dynamic = "force-static";
+
 /**
  * Allows all crawlers and points them at the generated sitemap.
  */

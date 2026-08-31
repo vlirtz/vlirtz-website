@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CalEmbedInit } from "@/components/booking/CalEmbedInit";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 import { CookieConsentBanner } from "@/components/consent/CookieConsentBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppWidget />
+        <ChatWidget />
         <CookieConsentBanner />
       </body>
     </html>

@@ -110,6 +110,31 @@ h4 {
   font-weight: 600;
 }
 
+.prose-blog table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prose-blog th,
+.prose-blog td {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose-blog th {
+  background: var(--fog);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.prose-blog tr:nth-child(even) td {
+  background: var(--fog);
+}
+
 .reveal-load,
 .reveal-load-image {
   opacity: 1;

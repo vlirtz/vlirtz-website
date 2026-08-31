@@ -114,8 +114,11 @@ export default function ServicesPage() {
             </article>
           ))}
         </Container>
-        <Container className="mt-12">
+        <Container className="mt-12 flex flex-wrap items-center gap-4">
           <Button href="/contact">Talk about a project</Button>
+          <Button href="/locations" variant="secondary">
+            See where we work
+          </Button>
         </Container>
       </section>
     </>

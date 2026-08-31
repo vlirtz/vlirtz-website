@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { FaqItem } from "./faq";
+import type { Location } from "./locations";
 import { formatAddressLine, site } from "./site";
 
 type PageSeo = {
@@ -114,4 +116,71 @@ export function getWebsiteJsonLd() {
  */
 export function getVisibleAddress(): string {
   return formatAddressLine();
+}
+
+/**
+ * Service JSON-LD for a market/location page, scoped to that area with
+ * areaServed so it stays distinct from the sitewide LocalBusiness entry.
+ */
+export function getLocationServiceJsonLd(location: Location) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "AI software development and consulting",
+    provider: {
+      "@type": "ProfessionalService",
+      name: site.name,
+      url: site.url,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: site.address.street,
+        postalCode: site.address.postalCode,
+        addressLocality: site.address.city,
+        addressRegion: site.address.region,
+        addressCountry: site.address.countryCode,
+      },
+    },
+    areaServed: {
+      "@type": location.kind === "region" ? "Place" : "City",
+      name: location.city,
+    },
+    description: location.metaDescription,
+    url: `${site.url}/locations/${location.slug}`,
+  };
+}
+
+/**
+ * FAQPage JSON-LD for a market/location page's Q&A block.
+ */
+export function getLocationFaqJsonLd(location: Location) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: location.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * FAQPage JSON-LD for any generic list of Q&A items, e.g. the homepage FAQ.
+ */
+export function getFaqJsonLd(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }

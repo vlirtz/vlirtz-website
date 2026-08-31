@@ -1,11 +1,12 @@
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ContactSection } from "@/components/home/ContactSection";
+import { Faq } from "@/components/home/Faq";
 import { Hero } from "@/components/home/Hero";
 import { Projects } from "@/components/home/Projects";
-import { ServiceCards } from "@/components/home/ServiceCards";
 import { ServiceDetails } from "@/components/home/ServiceDetails";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata, getLocalBusinessJsonLd } from "@/lib/seo";
+import { homeFaq } from "@/lib/faq";
+import { createPageMetadata, getFaqJsonLd, getLocalBusinessJsonLd } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Expert Software Development Agency in Stockholm, Europe, Middle East",
@@ -22,17 +23,18 @@ export const metadata = createPageMetadata({
 });
 
 /**
- * Homepage: hero, services, about, projects, and contact. No testimonials.
+ * Homepage: hero, services, about, projects, FAQ, and contact. No testimonials.
  */
 export default function HomePage() {
   return (
     <>
       <JsonLd data={getLocalBusinessJsonLd()} />
+      <JsonLd data={getFaqJsonLd(homeFaq)} />
       <Hero />
-      <ServiceCards />
       <AboutPreview />
       <ServiceDetails />
       <Projects />
+      <Faq />
       <ContactSection />
     </>
   );

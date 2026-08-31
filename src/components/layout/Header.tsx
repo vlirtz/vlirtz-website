@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { navigation } from "@/lib/site";
+import { BookCallButton } from "@/components/booking/BookCallButton";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
@@ -35,24 +36,29 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <BookCallButton variant="secondary" />
           <Button href="/contact">Get in touch</Button>
         </div>
 
-        <button
-          type="button"
-          className="rounded-md p-2 text-navy lg:hidden"
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span className="sr-only">Menu</span>
-          <div className="space-y-1.5">
-            <span className="block h-0.5 w-6 bg-navy" />
-            <span className="block h-0.5 w-6 bg-navy" />
-            <span className="block h-0.5 w-6 bg-navy" />
-          </div>
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <BookCallButton variant="secondary" className="px-4 py-2" />
+
+          <button
+            type="button"
+            className="rounded-md p-2 text-navy"
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="space-y-1.5">
+              <span className="block h-0.5 w-6 bg-navy" />
+              <span className="block h-0.5 w-6 bg-navy" />
+              <span className="block h-0.5 w-6 bg-navy" />
+            </div>
+          </button>
+        </div>
       </Container>
 
       {open ? (

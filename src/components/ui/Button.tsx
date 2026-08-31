@@ -4,10 +4,15 @@ import type { ReactNode } from "react";
 type ButtonProps = {
   href?: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "outline";
   type?: "button" | "submit";
   className?: string;
   disabled?: boolean;
+  onClick?: () => void;
+  target?: string;
+  rel?: string;
+  /** Passthrough for data-* attributes, e.g. Cal.com's data-cal-link embed trigger. */
+  [dataAttribute: `data-${string}`]: string | undefined;
 };
 
 const variants = {
@@ -16,6 +21,8 @@ const variants = {
   secondary:
     "bg-white text-navy border-line hover:border-indigo hover:text-indigo",
   ghost: "bg-transparent text-navy border-transparent hover:text-indigo",
+  outline:
+    "bg-transparent text-white border-white/70 hover:bg-white/10 hover:border-white",
 };
 
 /**
@@ -28,19 +35,29 @@ export function Button({
   type = "button",
   className = "",
   disabled = false,
+  onClick,
+  target,
+  rel,
+  ...dataAttributes
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} target={target} rel={rel} {...dataAttributes}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={classes} disabled={disabled}>
+    <button
+      type={type}
+      className={classes}
+      disabled={disabled}
+      onClick={onClick}
+      {...dataAttributes}
+    >
       {children}
     </button>
   );

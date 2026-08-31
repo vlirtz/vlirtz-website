@@ -8,10 +8,13 @@ export const site = {
   legalForm: "enskild firma",
   orgNumber: "19970113-8233",
   relatedCompany: "VIDIS SERVICES AB",
-  url: "https://vlirtz.com",
+  /** www is the canonical host on Vercel; the apex domain 308s here. */
+  url: "https://www.vlirtz.com",
   email: "info@vlirtz.com",
   phone: "+46 76 451 40 94",
   phoneHref: "tel:+46764514094",
+  whatsapp: "+46 76 451 40 94",
+  whatsappHref: "https://wa.me/46764514094",
   hours: "09:00-17:00 CET",
   founded: "2025",
   description:

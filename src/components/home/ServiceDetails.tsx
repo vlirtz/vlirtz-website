@@ -4,7 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /**
- * Longer service descriptions used on the homepage below the about teaser.
+ * Longer service descriptions used on the homepage below the about teaser,
+ * paired with a brand image on the left, matching the original site layout.
  */
 export function ServiceDetails() {
   return (
@@ -12,32 +13,32 @@ export function ServiceDetails() {
       <Container>
         <div data-reveal>
           <SectionHeading
+            align="center"
             eyebrow="What we do"
             title="Innovative AI architect solutions"
-            description="Expert AI software development services for teams that want something shipped, not another workshop."
+            description="Expert AI software development services tailored to meet your business needs effectively. Our team of experts brings only exceptional results."
           />
+          <p className="mx-auto mt-2 max-w-3xl text-center text-base font-semibold text-navy sm:text-lg">
+            We don&apos;t stop until you&apos;re happy with the results.
+          </p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map((service, index) => (
-            <article
-              key={service.slug}
-              data-reveal="image"
-              data-delay={String(index)}
-              className="overflow-hidden rounded-3xl bg-white ring-1 ring-line"
-            >
-              <Image
-                src={service.image}
-                alt={service.imageAlt}
-                width={720}
-                height={480}
-                className="h-44 w-full object-cover"
-              />
-              <div className="p-8">
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-2">
+          <Image
+            src="/images/ad-2.jpg"
+            alt="VLIRTZ street advertisement asking if your business is ready for AI agents"
+            width={700}
+            height={860}
+            data-reveal="image"
+            className="h-full w-full rounded-3xl object-cover"
+          />
+          <div className="space-y-8">
+            {services.map((service, index) => (
+              <div key={service.slug} data-reveal data-delay={String(index)}>
                 <h3 className="text-xl font-semibold text-navy">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{service.summary}</p>
+                <p className="mt-3 text-base leading-7 text-muted">{service.summary}</p>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </Container>
     </section>

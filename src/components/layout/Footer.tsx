@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { locations } from "@/lib/locations";
 import { formatAddressBlock, site } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
@@ -11,7 +12,7 @@ import { SocialLinks } from "@/components/layout/SocialLinks";
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <Image
             src="/images/logo-horizontal-white.png"
@@ -76,6 +77,29 @@ export function Footer() {
                 Contact
               </Link>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em]">
+            Where we work
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm text-white/80">
+            <li>
+              <Link href="/locations" className="hover:text-white">
+                All locations
+              </Link>
+            </li>
+            {locations.map((location) => (
+              <li key={location.slug}>
+                <Link
+                  href={`/locations/${location.slug}`}
+                  className="hover:text-white"
+                >
+                  {location.city}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

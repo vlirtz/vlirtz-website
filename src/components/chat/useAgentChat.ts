@@ -142,10 +142,18 @@ export function useAgentChat() {
 
       // Snapshot the history before adding the new turns, so the server gets
       // the conversation as it was, plus `message` separately.
-      const history = messages.map((message) => ({
-        role: message.role,
-        content: message.content,
-      }));
+      //
+      // Placeholder assistant bubbles are dropped: one is inserted empty and
+      // filled by the token stream, so a run that errored or was aborted leaves
+      // a turn with no content behind. The endpoint requires every turn to be
+      // non-empty and rejects the whole request, which would make one failure
+      // poison the rest of the conversation.
+      const history = messages
+        .filter((message) => message.content.trim().length > 0)
+        .map((message) => ({
+          role: message.role,
+          content: message.content,
+        }));
 
       setMessages((current) => [
         ...current,
@@ -169,7 +177,11 @@ export function useAgentChat() {
           body: JSON.stringify({
             message: trimmed,
             history,
-            sessionId: sessionIdRef.current,
+            // `undefined` rather than the ref's `null`: JSON.stringify drops an
+            // undefined value but serialises null, and the endpoint treats the
+            // field as optional, not nullable. Sending null on the first message
+            // fails validation before the agent is ever reached.
+            sessionId: sessionIdRef.current ?? undefined,
             sourceUrl:
               typeof window === "undefined" ? undefined : window.location.href,
           }),

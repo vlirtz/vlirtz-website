@@ -166,10 +166,14 @@ rather than duplicating them.
 ### 4. Cal.com
 
 ```bash
-NEXT_PUBLIC_CAL_LINK=https://cal.com/vlirtz/discovery-call
+NEXT_PUBLIC_CAL_LINK=https://cal.com/borja-javierre/discovery-call
 ```
 
 Used by the header and footer CTAs and offered by the agent in conversation.
+Both the fallback in `lib/agent/calLink.ts` and this value must be a link that
+actually resolves: it is rendered straight into an `href` and quoted verbatim in
+the system prompt, so a wrong slug degrades to a silent 404 rather than an error
+anyone would notice.
 
 ## Operations
 

@@ -28,7 +28,9 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-9 text-[15px] text-ink lg:flex">
+        {/* gap tightened from 9 to 6 when /pricing and /locations were added,
+            so six items still fit alongside the logo and both CTAs at lg. */}
+        <nav className="hidden items-center gap-6 text-[15px] text-ink lg:flex">
           {navigation.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-indigo">
               {item.label}

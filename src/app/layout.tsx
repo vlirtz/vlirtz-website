@@ -11,7 +11,7 @@ import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { RevealRoot } from "@/components/motion/RevealRoot";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
-import { getWebsiteJsonLd } from "@/lib/seo";
+import { getFounderJsonLd, getWebsiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,7 +27,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Expert Software Development Agency in Stockholm | VLIRTZ",
+    default: "AI Software Agency in Stockholm | VLIRTZ",
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -80,6 +80,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-white font-sans text-ink">
         <GoogleAnalytics />
         <JsonLd data={getWebsiteJsonLd()} />
+        {/*
+          The founder Person node is emitted sitewide because the
+          Organization and BlogPosting schemas both reference it by @id.
+          A dangling @id reference is ignored by Google, so the node has to
+          be resolvable from whichever page the crawler happens to fetch.
+        */}
+        <JsonLd data={getFounderJsonLd()} />
         <RevealRoot />
         <CalEmbedInit />
         <ScrollProgressBar />

@@ -10,8 +10,12 @@ type LocationFaqProps = {
 };
 
 /**
- * FAQ block, paired with FAQPage JSON-LD on the page itself. Answers stay
- * honest about the remote delivery model for non-Stockholm markets.
+ * FAQ block, paired with FAQPage JSON-LD on the page itself.
+ *
+ * The heading uses the market's primary keyword phrasing rather than a
+ * generic "Common questions", since this is often the section that surfaces
+ * as a rich result. Answers stay honest about the remote delivery model for
+ * every market other than Stockholm.
  */
 export function LocationFaq({ location }: LocationFaqProps) {
   const relatedPosts = location.relatedPostSlugs
@@ -23,8 +27,8 @@ export function LocationFaq({ location }: LocationFaqProps) {
       <Container className="max-w-3xl">
         <div data-reveal>
           <SectionHeading
-            eyebrow="Common questions"
-            title={`Working with VLIRTZ from ${location.city}`}
+            eyebrow="FAQ"
+            title={`Questions we get about AI work in ${location.city}`}
           />
         </div>
         <dl className="mt-10 space-y-6">
@@ -63,9 +67,23 @@ export function LocationFaq({ location }: LocationFaqProps) {
             </ul>
           </div>
         ) : null}
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Button href="/contact">Get in touch</Button>
+          <Button href="/pricing" variant="secondary">
+            See pricing
+          </Button>
         </div>
+        <p className="mt-8 text-center text-xs text-muted">
+          This page was last reviewed on{" "}
+          <time dateTime={location.dateModified}>
+            {new Date(location.dateModified).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </time>
+          .
+        </p>
       </Container>
     </section>
   );

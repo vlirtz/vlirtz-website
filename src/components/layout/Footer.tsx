@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { agentDevelopmentMarkets } from "@/lib/agent-development";
 import { locations } from "@/lib/locations";
 import { formatAddressBlock, site } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
@@ -54,27 +55,40 @@ export function Footer() {
 
         <div>
           <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em]">
-            Explore
+            Services
           </h2>
           <ul className="mt-4 space-y-3 text-sm text-white/80">
             <li>
               <Link href="/services" className="hover:text-white">
-                Services
+                All services
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white">
-                About
+              <Link
+                href="/services/ai-agent-development"
+                className="hover:text-white"
+              >
+                AI agent development
+              </Link>
+            </li>
+            {agentDevelopmentMarkets.map((market) => (
+              <li key={market.slug}>
+                <Link
+                  href={`/services/ai-agent-development/${market.slug}`}
+                  className="pl-3 text-white/65 hover:text-white"
+                >
+                  AI agents in {market.city}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/pricing" className="hover:text-white">
+                Pricing
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="hover:text-white">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-white">
-                Contact
+              <Link href="/how-we-work" className="hover:text-white">
+                How we work
               </Link>
             </li>
           </ul>
@@ -100,6 +114,27 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+
+          <h2 className="mt-8 font-display text-sm font-semibold uppercase tracking-[0.16em]">
+            Company
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm text-white/80">
+            <li>
+              <Link href="/about" className="hover:text-white">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-white">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-white">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 

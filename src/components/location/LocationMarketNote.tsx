@@ -42,6 +42,10 @@ export function LocationMarketNote({ location }: LocationMarketNoteProps) {
               <dt className="font-medium text-navy">Sectors we see most</dt>
               <dd className="mt-1 text-muted">{location.sectors.join(", ")}</dd>
             </div>
+            <div>
+              <dt className="font-medium text-navy">We quote in</dt>
+              <dd className="mt-1 text-muted">{location.currency}</dd>
+            </div>
           </dl>
         </aside>
       </Container>

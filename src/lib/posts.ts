@@ -8,6 +8,13 @@ export type PostFrontmatter = {
   title: string;
   description: string;
   date: string;
+  /**
+   * ISO date of the last substantive edit. Optional, and falls back to
+   * `date`. It exists because emitting `dateModified` equal to
+   * `datePublished` tells Google nothing, so a real value is needed for
+   * freshness to mean anything on updated posts.
+   */
+  dateModified?: string;
   author: string;
   image?: string;
   keywords: string[];
@@ -16,6 +23,8 @@ export type PostFrontmatter = {
 export type Post = PostFrontmatter & {
   slug: string;
   content: string;
+  /** Resolved modification date: `dateModified` when set, otherwise `date`. */
+  lastModified: string;
 };
 
 /**
@@ -60,6 +69,8 @@ function readPost(slug: string): Post | null {
     title: frontmatter.title,
     description: frontmatter.description,
     date: frontmatter.date,
+    dateModified: frontmatter.dateModified,
+    lastModified: frontmatter.dateModified ?? frontmatter.date,
     author: frontmatter.author,
     image: frontmatter.image,
     keywords: frontmatter.keywords ?? [],

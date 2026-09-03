@@ -45,10 +45,21 @@ export const site = {
   },
 } as const;
 
+/**
+ * Header navigation.
+ *
+ * "Home" is dropped because the logo already links there, which frees two
+ * slots for /pricing and /locations. Those two pages previously had no
+ * header link at all: market pages were reachable only from the footer,
+ * which starved the city pages of the internal link equity they need to
+ * rank. Pricing is a high-intent commercial page and belongs in the header
+ * for the same reason.
+ */
 export const navigation = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/locations", label: "Locations" },
+  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;

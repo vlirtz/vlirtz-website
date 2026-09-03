@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { agentDevelopmentMarkets } from "@/lib/agent-development";
 import { locations } from "@/lib/locations";
 import { getAllPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
@@ -15,34 +16,53 @@ import { site } from "@/lib/site";
 export const dynamic = "force-static";
 
 /**
- * Generates the XML sitemap for marketing pages, market pages, and blog posts.
+ * Static routes with a real review date each.
+ *
+ * The previous version stamped every URL with `new Date()` at build time, so
+ * the whole site claimed to have changed on every deploy. Google discounts a
+ * sitemap that cries wolf, which wastes the one honest freshness signal we
+ * have. These dates are updated by hand when a page's content actually
+ * changes; market and blog dates come from their own content.
+ */
+const staticRoutes: { path: string; lastModified: string; priority: number }[] = [
+  { path: "", lastModified: "2026-09-03", priority: 1 },
+  { path: "/services", lastModified: "2026-08-31", priority: 0.9 },
+  { path: "/services/ai-agent-development", lastModified: "2026-09-03", priority: 0.9 },
+  { path: "/pricing", lastModified: "2026-09-03", priority: 0.9 },
+  { path: "/how-we-work", lastModified: "2026-09-03", priority: 0.8 },
+  { path: "/locations", lastModified: "2026-09-03", priority: 0.8 },
+  { path: "/about", lastModified: "2026-08-31", priority: 0.7 },
+  { path: "/contact", lastModified: "2026-08-31", priority: 0.7 },
+  { path: "/blog", lastModified: "2026-09-03", priority: 0.7 },
+  { path: "/authors/borja-javierre", lastModified: "2026-09-03", priority: 0.5 },
+  { path: "/privacy", lastModified: "2026-08-24", priority: 0.3 },
+  { path: "/terms", lastModified: "2026-08-24", priority: 0.3 },
+];
+
+/**
+ * Generates the XML sitemap for marketing pages, service pages, market
+ * pages, and blog posts.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-  const staticRoutes = [
-    "",
-    "/about",
-    "/services",
-    "/locations",
-    "/contact",
-    "/blog",
-    "/privacy",
-    "/terms",
-  ];
-
   return [
-    ...staticRoutes.map((path) => ({
-      url: `${site.url}${path}`,
-      lastModified,
+    ...staticRoutes.map((route) => ({
+      url: `${site.url}${route.path}`,
+      lastModified: new Date(route.lastModified),
       changeFrequency:
-        path === "" || path === "/blog"
+        route.path === "" || route.path === "/blog"
           ? ("weekly" as const)
           : ("monthly" as const),
-      priority: path === "" ? 1 : 0.7,
+      priority: route.priority,
+    })),
+    ...agentDevelopmentMarkets.map((market) => ({
+      url: `${site.url}/services/ai-agent-development/${market.slug}`,
+      lastModified: new Date(market.dateModified),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
     })),
     ...locations.map((location) => ({
       url: `${site.url}/locations/${location.slug}`,
-      lastModified,
+      lastModified: new Date(location.dateModified),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
@@ -58,9 +78,9 @@ function getBlogPostEntries(): MetadataRoute.Sitemap {
   try {
     return getAllPosts().map((post) => ({
       url: `${site.url}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.lastModified),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.6,
     }));
   } catch (error) {
     console.error("[sitemap] Could not read blog posts:", error);

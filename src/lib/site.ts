@@ -18,7 +18,7 @@ export const site = {
   hours: "09:00-17:00 CET",
   founded: "2025",
   description:
-    "Stockholm-based AI software agency building AI agents, advising on AI strategy, and running AI lead generation for companies in Europe and the Middle East.",
+    "Stockholm-based AI software agency building AI agents, advising on AI strategy, and running AI lead generation for companies in Europe and the Middle East. Built on a software engineering background, we also deliver full-stack web and mobile development.",
   tagline: "Your AI partner for building, advising and growing.",
   address: {
     street: "Kokillbacken 7 Lgh 1004",
@@ -94,6 +94,29 @@ export const services = [
     imageAlt: "Developer reviewing work on a widescreen monitor",
   },
 ] as const;
+
+/**
+ * General software engineering offer. Deliberately kept out of `services`:
+ * AI/ML is the focus and the three pillars above drive the hero grid, location
+ * pages and the agent prompt. This is the secondary offer that reflects the
+ * agency's engineering background, surfaced alongside them across the site.
+ */
+export const softwareEngineering = {
+  slug: "software-engineering",
+  title: "Software Engineering",
+  short:
+    "Full-stack web and mobile application development, beyond AI.",
+  summary:
+    "VLIRTZ was founded on software engineering. Alongside our AI/ML work we build full-stack web applications, mobile apps, APIs, portals, dashboards and internal tools, so you can bring us a product that has nothing to do with AI/ML.",
+  /** One-line version for footers, teasers and other small spaces. */
+  note: "AI/ML is our focus, but software engineering is our foundation: we also have teams building full-stack web and mobile applications.",
+  capabilities: [
+    "Web applications and websites",
+    "iOS and Android mobile apps",
+    "APIs, backends and integrations",
+    "Portals, dashboards and internal tools",
+  ],
+} as const;
 
 /**
  * Formats the public street address as a single line.

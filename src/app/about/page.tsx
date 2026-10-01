@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "About VLIRTZ, the AI software agency in Stockholm",
   description:
-    "VLIRTZ is a Stockholm-based AI software agency founded by Borja Javierre i Moyano. We build AI agents, advise on AI strategy, and run AI lead generation.",
+    "VLIRTZ is a Stockholm-based AI software agency founded by Borja Javierre i Moyano. We build AI agents, advise on AI strategy, run AI lead generation, and deliver full-stack software engineering.",
   path: "/about",
   keywords: [
     "AI software agency Stockholm",
@@ -37,7 +37,9 @@ export default function AboutPage() {
             <p className="mt-6 text-lg leading-8 text-muted">
               VLIRTZ is a Stockholm AI software agency. We help companies
               implement agents, decide what is worth building, and put AI to
-              work on finding customers.
+              work on finding customers. Our background is software
+              engineering, and we also build full-stack web and mobile
+              applications.
             </p>
           </div>
           <Image
@@ -67,7 +69,9 @@ export default function AboutPage() {
               </p>
               <p>
                 His background is software development and electrical
-                engineering. Before VLIRTZ he also spent time in business,
+                engineering, and VLIRTZ is built on that engineering
+                foundation. AI/ML is where we focus today, but we still take on
+                general full-stack web and mobile development. Before VLIRTZ he also spent time in business,
                 sales, and marketing in other ventures, which is why the work
                 here sits between product, delivery, and getting customers.
               </p>

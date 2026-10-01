@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { services } from "@/lib/site";
+import { services, softwareEngineering } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -8,13 +8,15 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "AI agent development, consulting and lead generation",
   description:
-    "VLIRTZ services: custom AI agents, AI consulting, and AI lead generation for companies in Stockholm, Europe, and the Middle East.",
+    "VLIRTZ services: custom AI agents, AI consulting, and AI lead generation, plus full-stack web and mobile software engineering, for companies in Stockholm, Europe, and the Middle East.",
   path: "/services",
   keywords: [
     "AI agent development",
     "AI consulting Stockholm",
     "AI lead generation",
     "AI software agency Stockholm",
+    "full-stack development Stockholm",
+    "mobile app development Stockholm",
   ],
 });
 
@@ -53,7 +55,8 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted">
             Custom AI agents, expert AI consulting, and AI lead generation.
-            Solutions built to put AI to work for your business.
+            Solutions built to put AI to work for your business, on top of a
+            software engineering foundation.
           </p>
         </Container>
       </section>
@@ -93,6 +96,28 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
+          <article
+            id={softwareEngineering.slug}
+            data-reveal
+            className="mt-6 rounded-3xl bg-white p-8 ring-1 ring-line md:p-10"
+          >
+            <p className="text-sm font-medium text-indigo">
+              Our foundation, alongside the AI/ML work
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-navy">
+              {softwareEngineering.title}
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
+              {softwareEngineering.summary}
+            </p>
+            <ul className="mt-6 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+              {softwareEngineering.capabilities.map((item) => (
+                <li key={item} className="list-inside list-disc">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
         </Container>
       </section>
 

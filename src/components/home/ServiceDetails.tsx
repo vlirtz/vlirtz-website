@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { services } from "@/lib/site";
+import { services, softwareEngineering } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -38,6 +38,18 @@ export function ServiceDetails() {
                 <p className="mt-3 text-base leading-7 text-muted">{service.summary}</p>
               </div>
             ))}
+            <div
+              data-reveal
+              data-delay={String(services.length)}
+              className="border-t border-line pt-8"
+            >
+              <h3 className="text-xl font-semibold text-navy">
+                Also: {softwareEngineering.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-muted">
+                {softwareEngineering.summary}
+              </p>
+            </div>
           </div>
         </div>
       </Container>

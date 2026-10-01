@@ -15,6 +15,11 @@ export const homeFaq: FaqItem[] = [
       "No. Most clients start with a problem, not a strategy: too many manual tickets, a sales team that cannot keep up with leads, a workflow nobody enjoys doing by hand. We help you figure out whether AI is even the right tool before we scope anything.",
   },
   {
+    question: "Do you also build regular web and mobile apps, without AI/ML?",
+    answer:
+      "Yes. VLIRTZ comes from a software engineering background, and we still take on full-stack web and mobile application development, APIs, portals, dashboards and internal tools. AI/ML is where we focus, but you do not need an AI/ML use case to work with us.",
+  },
+  {
     question: "What if we only need one specific AI agent, not a full platform?",
     answer:
       "That is most of our work. We scope a single agent or workflow, ship it, and prove it earns its keep before talking about anything bigger. No platform you have to buy into upfront.",

@@ -1,5 +1,5 @@
 import { locations } from "@/lib/locations";
-import { services, site } from "@/lib/site";
+import { services, site, softwareEngineering } from "@/lib/site";
 
 /** Stable @id values so schema nodes can reference each other across pages. */
 export const ORGANIZATION_ID = `${site.url}/#organization`;
@@ -69,6 +69,9 @@ export function getLocalBusinessJsonLd() {
       "AI agent development",
       "AI consulting",
       "AI lead generation",
+      "Full-stack software development",
+      "Web application development",
+      "Mobile app development",
       "Retrieval-augmented generation",
       "Workflow automation",
       "GDPR compliance for AI systems",
@@ -76,8 +79,8 @@ export function getLocalBusinessJsonLd() {
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "AI services",
-      itemListElement: services.map((service) => ({
+      name: "AI and software engineering services",
+      itemListElement: [...services, softwareEngineering].map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",

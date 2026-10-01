@@ -25,7 +25,7 @@ import { createPageMetadata, getFaqJsonLd, getLocalBusinessJsonLd } from "@/lib/
 export const metadata = createPageMetadata({
   title: "AI Software Agency in Stockholm",
   description:
-    "VLIRTZ is an AI software agency in Stockholm. We build AI agents, advise on AI strategy, and run AI lead generation for companies across Europe and the Middle East.",
+    "VLIRTZ is an AI software agency in Stockholm. We build AI agents, advise on AI strategy, and run AI lead generation for companies across Europe and the Middle East, backed by full-stack software engineering.",
   path: "/",
   keywords: [
     "AI software agency Stockholm",
@@ -34,6 +34,7 @@ export const metadata = createPageMetadata({
     "AI agent development",
     "AI consulting Stockholm",
     "AI lead generation",
+    "full-stack development Stockholm",
   ],
 });
 

@@ -22,6 +22,10 @@ export function AboutPreview() {
             you. We do not stop at a slide deck. We stay until the system is
             useful.
           </p>
+          <p className="mt-4 text-base leading-7 text-muted">
+            Our roots are in software engineering. Beyond AI/ML, we also build
+            full-stack web and mobile applications.
+          </p>
           <div className="mt-8">
             <Button href="/about" variant="secondary">
               Learn

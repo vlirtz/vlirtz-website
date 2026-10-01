@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { agentDevelopmentMarkets } from "@/lib/agent-development";
 import { locations } from "@/lib/locations";
-import { formatAddressBlock, site } from "@/lib/site";
+import { formatAddressBlock, site, softwareEngineering } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { SocialLinks } from "@/components/layout/SocialLinks";
@@ -25,6 +25,9 @@ export function Footer() {
           <p className="mt-5 max-w-xs text-sm leading-6 text-white/75">
             Delivering AI agent development, consulting and lead generation
             across Europe and the Middle East.
+          </p>
+          <p className="mt-3 max-w-xs text-sm leading-6 text-white/75">
+            {softwareEngineering.note}
           </p>
           <div className="mt-6">
             <SocialLinks />
@@ -81,6 +84,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href={`/services#${softwareEngineering.slug}`}
+                className="hover:text-white"
+              >
+                {softwareEngineering.title}
+              </Link>
+            </li>
             <li>
               <Link href="/pricing" className="hover:text-white">
                 Pricing

@@ -1,6 +1,6 @@
 import { agentConfig } from "./config";
 import { TOOL_NAMES } from "./events";
-import { services, site } from "@/lib/site";
+import { services, site, softwareEngineering } from "@/lib/site";
 
 /**
  * System prompt for the Vlirtz sales and onboarding agent.
@@ -17,9 +17,13 @@ const BOOKING_NUDGE_INTERVAL = 3;
  * Renders the service list so the agent knows the offering without retrieval.
  */
 function serviceList(): string {
-  return services
-    .map((service) => `- ${service.title}: ${service.short}`)
-    .join("\n");
+  const lines = services.map(
+    (service) => `- ${service.title}: ${service.short}`,
+  );
+  lines.push(
+    `- ${softwareEngineering.title} (secondary offer, AI/ML is the focus): ${softwareEngineering.summary}`,
+  );
+  return lines.join("\n");
 }
 
 /**

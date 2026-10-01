@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { hasAgentMarket } from "@/lib/agent-development";
 import type { Location } from "@/lib/locations";
-import { services } from "@/lib/site";
+import { services, softwareEngineering } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -77,6 +77,15 @@ export function LocationServices({ location }: LocationServicesProps) {
             </article>
           ))}
         </div>
+        <p data-reveal className="mt-8 text-sm leading-7 text-muted">
+          {softwareEngineering.note}{" "}
+          <Link
+            href={`/services#${softwareEngineering.slug}`}
+            className="font-medium text-indigo underline underline-offset-4"
+          >
+            More on software engineering
+          </Link>
+        </p>
       </Container>
     </section>
   );

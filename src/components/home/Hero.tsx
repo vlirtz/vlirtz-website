@@ -1,4 +1,4 @@
-import { site, services } from "@/lib/site";
+import { site, services, softwareEngineering } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
@@ -58,6 +58,12 @@ export function Hero() {
             </div>
           ))}
         </div>
+        <p
+          data-reveal
+          className="mx-auto mt-6 max-w-3xl text-center text-sm leading-6 text-white/75"
+        >
+          *{softwareEngineering.note}
+        </p>
       </Container>
     </section>
   );

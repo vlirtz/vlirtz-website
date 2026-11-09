@@ -4,8 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /**
- * About teaser shown on the homepage, paired with two workspace and brand
- * photos. The founder photo itself lives on /about only.
+ * Team teaser shown on the homepage, paired with two workspace and brand
+ * photos. The founder photo itself lives on /meet-the-team only.
  */
 export function AboutPreview() {
   return (
@@ -13,8 +13,8 @@ export function AboutPreview() {
       <Container className="grid items-center gap-12 lg:grid-cols-2">
         <div data-reveal>
           <SectionHeading
-            eyebrow="About Vlirtz"
-            title="A dedicated AI software agency in Stockholm"
+            eyebrow="Meet The Team"
+            title="The people behind VLIRTZ"
             description="We work with companies that want AI agents, a clear implementation plan, or a more reliable way to find interested buyers, across Europe and the Middle East."
           />
           <p className="mt-5 text-base leading-7 text-muted">
@@ -27,8 +27,8 @@ export function AboutPreview() {
             full-stack web and mobile applications.
           </p>
           <div className="mt-8">
-            <Button href="/about" variant="secondary">
-              Learn
+            <Button href="/meet-the-team" variant="secondary">
+              Meet The Team
             </Button>
           </div>
         </div>

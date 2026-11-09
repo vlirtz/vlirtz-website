@@ -31,7 +31,7 @@ const staticRoutes: { path: string; lastModified: string; priority: number }[] =
   { path: "/pricing", lastModified: "2026-09-03", priority: 0.9 },
   { path: "/how-we-work", lastModified: "2026-09-03", priority: 0.8 },
   { path: "/locations", lastModified: "2026-09-03", priority: 0.8 },
-  { path: "/about", lastModified: "2026-08-31", priority: 0.7 },
+  { path: "/meet-the-team", lastModified: "2026-11-09", priority: 0.7 },
   { path: "/contact", lastModified: "2026-08-31", priority: 0.7 },
   { path: "/blog", lastModified: "2026-09-03", priority: 0.7 },
   { path: "/authors/borja-javierre", lastModified: "2026-09-03", priority: 0.5 },

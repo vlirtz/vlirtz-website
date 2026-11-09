@@ -8,10 +8,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About VLIRTZ, the AI software agency in Stockholm",
+  title: "Meet The Team | VLIRTZ",
   description:
-    "VLIRTZ is a Stockholm-based AI software agency founded by Borja Javierre i Moyano. We build AI agents, advise on AI strategy, run AI lead generation, and deliver full-stack software engineering.",
-  path: "/about",
+    "Meet Borja Javierre i Moyano, Founder & Senior AI/ML Software Engineer at VLIRTZ, a Stockholm-based AI software agency.",
+  path: "/meet-the-team",
   keywords: [
     "AI software agency Stockholm",
     "software agency Stockholm",
@@ -20,9 +20,9 @@ export const metadata = createPageMetadata({
 });
 
 /**
- * About page with founder story, location, and campaign gallery.
+ * Team page with founder story, location, and campaign gallery.
  */
-export default function AboutPage() {
+export default function MeetTheTeamPage() {
   return (
     <>
       <section className="bg-white py-16 lg:py-20">
@@ -32,14 +32,18 @@ export default function AboutPage() {
               EU-based company
             </p>
             <h1 className="mt-6 text-4xl font-semibold text-navy sm:text-5xl">
-              Your trusted software development partner
+              Meet The Team
             </h1>
+            <h2 className="mt-4 text-2xl font-semibold text-navy">
+              {site.founder.name}
+            </h2>
+            <p className="mt-2 text-lg font-medium text-indigo">
+              {site.founder.role}
+            </p>
             <p className="mt-6 text-lg leading-8 text-muted">
-              VLIRTZ is a Stockholm AI software agency. We help companies
-              implement agents, decide what is worth building, and put AI to
-              work on finding customers. Our background is software
-              engineering, and we also build full-stack web and mobile
-              applications.
+              Borja leads VLIRTZ&apos;s AI/ML and software engineering work from
+              Stockholm, partnering directly with clients from discovery through
+              delivery.
             </p>
           </div>
           <Image
@@ -57,8 +61,8 @@ export default function AboutPage() {
         <Container className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div data-reveal>
             <SectionHeading
-              eyebrow="A short story about us"
-              title={`${site.founder.firstName} started VLIRTZ in late 2025`}
+              eyebrow="Founder-led delivery"
+              title={`Meet ${site.founder.firstName}`}
             />
             <div className="mt-6 space-y-4 text-base leading-7 text-muted">
               <p>
@@ -129,13 +133,25 @@ export default function AboutPage() {
         <Container>
           <div data-reveal>
             <SectionHeading
-              eyebrow="Our gallery"
+              eyebrow="Behind the scenes"
               title="How we show the work"
               description="Campaign visuals, studio photographs, and the Europe-Middle East map from the original site."
             />
           </div>
           <div className="mt-10">
             <PhotoGrid images={aboutGallery} />
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-fog py-16">
+        <Container>
+          <div data-reveal>
+            <SectionHeading
+              eyebrow="About"
+              title="About VLIRTZ"
+              description={site.description}
+            />
           </div>
         </Container>
       </section>

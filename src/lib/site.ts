@@ -40,7 +40,7 @@ export const site = {
   founder: {
     name: "Borja Javierre i Moyano",
     firstName: "Borja",
-    role: "Founder",
+    role: "Founder & Senior AI/ML Software Engineer",
     image: "/images/borja.jpg",
   },
 } as const;
@@ -59,7 +59,7 @@ export const navigation = [
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/locations", label: "Locations" },
-  { href: "/about", label: "About" },
+  { href: "/meet-the-team", label: "Meet The Team" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;

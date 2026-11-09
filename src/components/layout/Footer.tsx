@@ -132,8 +132,8 @@ export function Footer() {
           </h2>
           <ul className="mt-4 space-y-3 text-sm text-white/80">
             <li>
-              <Link href="/about" className="hover:text-white">
-                About
+              <Link href="/meet-the-team" className="hover:text-white">
+                Meet The Team
               </Link>
             </li>
             <li>

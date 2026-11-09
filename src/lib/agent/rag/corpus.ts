@@ -56,8 +56,8 @@ function buildCompanyChunks(): KnowledgeChunk[] {
   const chunks: KnowledgeChunk[] = [
     {
       id: "company-overview",
-      title: `About ${site.name}`,
-      source: `${site.url}/about`,
+      title: `Meet the team at ${site.name}`,
+      source: `${site.url}/meet-the-team`,
       text: [
         `${site.name} (${site.legalName}) is an AI software agency based in ${site.address.city}, ${site.address.country}.`,
         site.description,
